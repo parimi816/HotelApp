@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
-    @GET("recipes")
+    @GET("recipes.json")
     suspend fun getRecipes(): List<RecipeDto>
 
     @GET("recipes/{id}")
