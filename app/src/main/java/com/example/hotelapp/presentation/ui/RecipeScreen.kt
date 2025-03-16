@@ -9,6 +9,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.example.hotelapp.domain.model.Recipe
 import com.example.hotelapp.presentation.state.RecipeUiState
@@ -31,10 +32,12 @@ fun RecipeScreen(
 @Composable
 fun LoadingScreen() {
     Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
     ) {
-        CircularProgressIndicator()
+        CircularProgressIndicator(
+            modifier = Modifier.testTag("loading_indicator")
+        )
     }
 }
 
@@ -53,13 +56,22 @@ fun RecipeItem(recipe: Recipe) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .testTag("recipe_item_${recipe.id}")
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            Text(text = recipe.name, style = MaterialTheme.typography.headlineSmall)
+            Text(
+                text = recipe.name,
+                style = MaterialTheme.typography.headlineSmall,
+                modifier = Modifier.testTag("recipe_name_${recipe.id}")
+            )
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = recipe.description, style = MaterialTheme.typography.bodyMedium)
+            Text(
+                text = recipe.description,
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.testTag("recipe_description_${recipe.id}")
+            )
         }
     }
 }
@@ -67,9 +79,13 @@ fun RecipeItem(recipe: Recipe) {
 @Composable
 fun ErrorScreen(message: String) {
     Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
     ) {
-        Text(text = message, style = MaterialTheme.typography.bodyLarge)
+        Text(
+            text = message,
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.testTag("error_message")
+        )
     }
 }

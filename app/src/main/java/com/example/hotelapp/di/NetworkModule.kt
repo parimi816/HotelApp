@@ -47,3 +47,9 @@ object NetworkModule {
         return retrofit.create(ApiService::class.java)
     }
 }
+
+sealed class UIError {
+    object Network : UIError()
+    object ServerError : UIError()
+    data class Generic(val message: String) : UIError()
+}

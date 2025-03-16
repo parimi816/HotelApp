@@ -12,12 +12,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RecipeViewModel @Inject constructor(
+open class RecipeViewModel @Inject constructor(
     private val recipeRepository: RecipeRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<RecipeUiState>(RecipeUiState.Loading)
-    val uiState: StateFlow<RecipeUiState> = _uiState
+    open val uiState: StateFlow<RecipeUiState> = _uiState
 
     init {
         loadRecipes()

@@ -73,4 +73,17 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.50")
     kapt("com.google.dagger:hilt-android-compiler:2.50")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    // Testing
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+    testImplementation("org.mockito:mockito-core:5.3.1")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
+
+    // UI Testing
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.50")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.50")
 }
