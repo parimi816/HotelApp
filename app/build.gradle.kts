@@ -86,4 +86,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.50")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.50")
+
+    // Add Coil for image loading
+    implementation("io.coil-kt:coil-compose:2.5.0")
 }
